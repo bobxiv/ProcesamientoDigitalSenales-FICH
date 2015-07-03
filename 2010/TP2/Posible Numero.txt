@@ -1,0 +1,33 @@
+El con ruido, probado con una correacion de 2000 iteraciones avanzando de a 697/1000:
+
+	8
+	7
+	#
+	3
+	*
+	6
+	4
+
+
+	O
+
+5
+7
+#	
+3
+1
+6
+*
+
+
+5	Bastante probable vinedo a ojo los espectros
+7	Talvez hasta un poco ams probable que el de federico
+#	Esto corrido sin ningun fix, en telefono sucio
+3
+*	Mas probable el nuestro que el de ellos
+6
+4
+
+
+A los demas les dio:
+6428565

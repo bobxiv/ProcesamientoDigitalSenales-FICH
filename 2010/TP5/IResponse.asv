@@ -1,0 +1,10 @@
+function [ h ] = IResponse( y , OutStart, OutEnd)
+
+    index =1;
+    h = zeros(OutEnd-OutStart);
+    for i= OutStart:OutEnd
+        h(index) = y(1)
+    end
+
+end
+

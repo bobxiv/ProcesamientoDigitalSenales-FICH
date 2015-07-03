@@ -1,0 +1,75 @@
+%
+%Parametros:
+
+function E=Espectrograma(t, fm, x, Wwidth, overlap)
+    
+% Espectrograma -- Usando FFT
+%   Uso
+%    specgm = Espectrograma(t,fm,x,Wwidth,overlap)
+%   Entadas
+%       - Wwidth  cantidad de elementos por ventana
+%       - overlap solapamiento de las ventanas
+%   Salidas
+%       - E la matriz de espectrograma E(a,t)
+%
+%  Side Effects
+%    Image Plot of the spectrogram
+%
+%  See Also
+%    WVDist, WVDist_AF, ImagePhasePlane
+%
+%
+
+    dt = t(2)-t(1);
+
+    %Paso entre ventanas
+    step = Wwidth - overlap;
+    %Cantidad de ventanas
+    Wcount = floor( (length(x)-Wwidth)/step );
+    
+    Window = hamming(Wwidth)';
+    E = zeros(Wwidth,Wcount);
+    for wi= 1:Wcount
+        
+        ini = (wi-1)*step+1;
+        fin = ini+Wwidth -1;
+        
+        %Por definicion de espectrograma:
+        % E = | STFT |.^2
+        
+        %aux = length(x(ini:fin));
+        %aux = length(norm( fft( x(ini:fin)*Window ) ).^2);
+        
+        E(:,wi) = abs( fft( x(ini:fin).*Window ) ).^2;
+        
+    end
+    figure(3);
+    stem(E(:,1));
+    
+    %Ploteo
+    figure(1);
+    %imagesc(,,E);
+    Emin=max(max(abs(E)))/300;
+    
+    colormap(jet);
+    
+    %imagesc([t(1):dt:t(end)],[0:fm:fm/2],20*log10(max(abs(E),Emin)/Emin));
+    imagesc([t(1):dt:t(end)],[0:fm:fm/2],E);
+    colorbar
+    axis('xy')
+    
+    %Leyendas
+    xlabel('Tiempo [s]');
+    ylabel('Frequencia [Hz]');
+    title('Espectrograma');
+    
+    %Comparacion
+    figure(2);
+    spectrogram(x,Window,overlap);
+    
+   
+    
+    figure(4);
+    plot(x);
+
+end

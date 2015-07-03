@@ -1,0 +1,6 @@
+AnalizePulsesInitialize
+AnalizePulsesInitializeWithHandlers
+AnalizePulsesTerminate
+AnalizePulsesPrintStackTrace
+AnalizePulsesGetMcrID
+mlxAnalizarPulsos

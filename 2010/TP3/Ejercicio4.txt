@@ -1,0 +1,35 @@
+Ejercicio 4:
+------------
+
+Senal: s = sin(2*pi*f_1*t) + 4 * sin(2*pi*f_2*t)
+
+1) 	f_1 = 112
+	f_2 = 200
+	fm  = 512
+	T   = 249ms = 0.249s
+	
+	Calculos:
+	
+	La resolucion de frecuencias es:
+	df = fm/N = 1/(N*dt) = 1/T = 1/0.249s = 4hz
+	
+	Entonces segun los bastones del grafico(notar que empiezan en 1 en vez de en 0 por eso tomo 1 menos):
+	28*4hz = 112hz
+	50*4hz = 200hz
+	
+		Son iguales a los de la senal posible
+	
+	Y solo para verificar la coherencia:
+	
+	df * dt = 1/N -> dt = 1/(df*N) = 1/(4*128) = 0.0019531s
+	
+	Luego:
+	dt * N = 0.0019531s * 128 = 0.250s = 250ms ~ 249ms
+	
+	Osea que esta senal es posiblemente la que se aplico Fourier.
+
+
+	
+Si se hace lo mismo con el resto se puede ver que el resto fallan
+	
+

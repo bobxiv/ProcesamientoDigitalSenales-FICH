@@ -1,0 +1,33 @@
+w = LinearConvolution(x,ha);
+
+y = LinearConvolution(w,hb);
+
+y
+
+function res = x(index)
+    res = Dirac(index)-2*Dirac(index-1);
+end
+
+function res = Dirac(index)
+    if index == 6
+        res = 1;
+    else
+        res = 0;
+    end
+end
+
+function res = ha(n)
+    res = sin(8*n);
+end
+
+function res = hb(n)
+    res = (2^n)*u(n)
+end
+
+function res = u(index)
+    if index < 6
+        res = 0;
+    else
+        res = 1;
+    end
+end
